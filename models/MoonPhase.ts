@@ -54,3 +54,5 @@ export interface NewMoonPhase {
   phaseName: string
   phaseDescription: string
 }
+
+export type RawMoonPhaseArr = { data: MoonPhase }[]
