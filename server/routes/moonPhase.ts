@@ -14,6 +14,7 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   try {
     const moonPhases = await getMoonPhases()
+
     res.json({ moonPhases })
   } catch (err) {
     console.error(err)

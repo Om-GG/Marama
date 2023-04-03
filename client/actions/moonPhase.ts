@@ -1,5 +1,5 @@
 import type { ThunkAction } from '../store'
-import { MoonPhase, RawMoonPhaseArr } from '../../models/MoonPhase'
+import { MoonPhase } from '../../models/MoonPhase'
 
 import { getMoonPhases } from '../apis/moonPhase'
 
@@ -12,15 +12,13 @@ export type MoonPhaseAction =
   | { type: typeof RECEIVE_MOON_PHASES; payload: MoonPhase[] }
   | { type: typeof FAILURE_MOON_PHASES; payload: string }
 
-export function requestPosts(): MoonPhaseAction {
+export function requestMoonPhases(): MoonPhaseAction {
   return {
     type: REQUEST_MOON_PHASES,
   }
 }
 
-export function receiveMoonPhases(
-  moonPhases: RawMoonPhaseArr
-): MoonPhaseAction {
+export function receiveMoonPhases(moonPhases: MoonPhase[]): MoonPhaseAction {
   return {
     type: RECEIVE_MOON_PHASES,
     payload: moonPhases.map((moonPhase) => moonPhase),
@@ -36,7 +34,7 @@ export function failureMoonPhases(errorMessage: string): MoonPhaseAction {
 
 export function getMarama(): ThunkAction {
   return (dispatch) => {
-    dispatch(requestPosts())
+    dispatch(requestMoonPhases())
     return getMoonPhases()
       .then((moonPhases) => {
         console.log(receiveMoonPhases(moonPhases))
