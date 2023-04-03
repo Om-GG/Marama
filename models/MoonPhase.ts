@@ -45,7 +45,7 @@ export interface MoonPhase {
   phaseDescription: string
 }
 export interface MoonPhaseSnakeCase {
-  id: number
+  id?: number
   phase_name: string
   phase_description: string
 }
