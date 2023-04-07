@@ -1,4 +1,5 @@
 import { useAppSelector } from '../hooks/hooks'
+import DeleteMarama from './DeleteMarama'
 import MoonPhase from './MoonPhase'
 
 export default function MoonPhaseList() {
@@ -7,11 +8,16 @@ export default function MoonPhaseList() {
     <div>
       {marama.data.map((moonPhase, i) => {
         return (
-          <MoonPhase
-            key={i}
-            phaseDescription={moonPhase.phaseDescription}
-            phaseName={moonPhase.phaseName}
-          />
+          <>
+            <div className="content is-normal">
+              <MoonPhase
+                key={i}
+                phaseDescription={moonPhase.phaseDescription}
+                phaseName={moonPhase.phaseName}
+              />
+              <DeleteMarama key={`x${i}`} id={moonPhase.id} />
+            </div>
+          </>
         )
       })}
     </div>

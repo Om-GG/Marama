@@ -42,7 +42,7 @@ function AddMarama() {
             <input
               className="input"
               type="text"
-              placeholder="Ko marama ko wai?"
+              placeholder="Ko wai te marama??"
               name="phaseName"
               id="phaseName"
               value={phaseName}
@@ -69,7 +69,7 @@ function AddMarama() {
             <button className="button is-link">Add</button>
           </div>
         </div>
-      </div>
+      </div>  
     </form>
   )
 }
