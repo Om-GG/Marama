@@ -59,7 +59,7 @@ Our first job is getting something showing on the front end from our database. H
 
 ### 4. Setting the stage
 
-- [ ] Build a React component with static html
+- [x] Build a React component with static html
 - [ ] Build Redux reducer. Start with a hardcoded initial state
   <details style="padding-left: 2em">
     <summary>Tip</summary>

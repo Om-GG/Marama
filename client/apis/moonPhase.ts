@@ -4,13 +4,8 @@ import { MoonPhase, NewMoonPhase } from '../../models/MoonPhase'
 const rootUrl = '/api/v1'
 
 export async function getMoonPhases(): Promise<MoonPhase[]> {
-  try {
-    const res = await request.get(`${rootUrl}/moonPhase`)
-    return res.body.moonPhases
-  } catch (err) {
-    console.error('Error consuming the API (in client/apis/MoonPhase.js):', err)
-    return []
-  }
+  const res = await request.get(`/api/v1/moonPhase`)
+  return res.body.moonPhases
 }
 
 export async function addMoonPhase(
@@ -20,7 +15,7 @@ export async function addMoonPhase(
     const res = await request.post(`${rootUrl}/moonPhase`).send({ moonPhase })
     return res.body.moonPhases
   } catch (err) {
-    console.error('Error consuming the API (in client/apis/MoonPhase.js):', err)
+    console.error('Error consuming the API (in client/apis/moonPhase.js):', err)
     return []
   }
 }

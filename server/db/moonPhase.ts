@@ -3,7 +3,11 @@ import { MoonPhaseSnakeCase } from '../../models/MoonPhase'
 
 export function getMoonPhases(db = connection) {
   return db('moon_phase')
-    .select('id', 'phase_name', 'phase_description')
+    .select(
+      'id',
+      'phase_name as phaseName',
+      'phase_description as phaseDescription'
+    )
     .orderBy('id')
 }
 export function addMoonPhase(moonPhase: MoonPhaseSnakeCase, db = connection) {

@@ -1,5 +1,5 @@
 import express from 'express'
-import { MoonPhase, MoonPhaseSnakeCase } from '../../models/MoonPhase'
+import { MoonPhaseSnakeCase } from '../../models/MoonPhase'
 // import checkJwt, { JwtRequest } from '../auth0'
 
 import {
@@ -14,6 +14,7 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   try {
     const moonPhases = await getMoonPhases()
+
     res.json({ moonPhases })
   } catch (err) {
     console.error(err)
