@@ -60,7 +60,7 @@ Our first job is getting something showing on the front end from our database. H
 ### 4. Setting the stage
 
 - [x] Build a React component with static html
-- [ ] Build Redux reducer. Start with a hardcoded initial state
+- [x] Build Redux reducer. Start with a hardcoded initial state
   <details style="padding-left: 2em">
     <summary>Tip</summary>
     
@@ -70,15 +70,15 @@ Our first job is getting something showing on the front end from our database. H
     ```
   </details>
 
-- [ ] Use `useAppSelector` to display the redux state you hardcoded in the React Component
+- [x] Use `useAppSelector` to display the redux state you hardcoded in the React Component
 
 ### 5. Building the API client
-- [ ] Build an API client in the front end to request the information from your routes
+- [x] Build an API client in the front end to request the information from your routes
 
 ### 6. Building thunky actions
-- [ ] Build Thunk actions to use the API and get the information
-- [ ] Build Redux actions to save task data from the thunk
-- [ ] Use `useAppDispatch` and `useEffect` to dispatch the thunk when your app loads
+- [x] Build Thunk actions to use the API and get the information
+- [x] Build Redux actions to save task data from the thunk
+- [x] Use `useAppDispatch` and `useEffect` to dispatch the thunk when your app loads
 
 ## Additional functionality
 
