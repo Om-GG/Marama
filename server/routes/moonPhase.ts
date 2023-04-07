@@ -1,5 +1,5 @@
 import express from 'express'
-import { MoonPhase, MoonPhaseSnakeCase } from '../../models/MoonPhase'
+import { MoonPhaseSnakeCase } from '../../models/MoonPhase'
 // import checkJwt, { JwtRequest } from '../auth0'
 
 import {

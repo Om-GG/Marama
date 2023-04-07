@@ -3,13 +3,15 @@ interface Props {
   phaseDescription: string
 }
 
-function MoonPhase({phaseName, phaseDescription}: Props) {
+function MoonPhase({ phaseName, phaseDescription }: Props) {
   return (
     <div>
-      <p>{phaseName}</p>
+      <h4>{phaseName}</h4>
       <b />
       <p>{phaseDescription}</p>
     </div>
   )
 }
 export default MoonPhase
+
+// console.log(MoonPhase({phaseName, phaseDescription}: Props))

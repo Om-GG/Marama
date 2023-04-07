@@ -37,7 +37,6 @@ export function getMarama(): ThunkAction {
     dispatch(requestMoonPhases())
     return getMoonPhases()
       .then((moonPhases) => {
-        console.log(receiveMoonPhases(moonPhases))
         dispatch(receiveMoonPhases(moonPhases))
       })
       .catch((err) => {
