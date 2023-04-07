@@ -37,10 +37,12 @@ function AddMarama() {
     <form onSubmit={handleSubmit} aria-label="Add Marama">
       <div>
         <div className="field">
-          <label className="label">Name</label>
+          <label className="label" htmlFor="phaseName">
+            Name
+          </label>
           <div className="control">
             <input
-              className="input"
+              className="input is-success"
               type="text"
               placeholder="Ko wai te marama??"
               name="phaseName"
@@ -51,10 +53,12 @@ function AddMarama() {
           </div>
         </div>
         <div className="field">
-          <label className="label">Description</label>
+          <label className="label" htmlFor="phaseDescription">
+            Description
+          </label>
           <div className="control">
             <input
-              className="input"
+              className="input is-success"
               type="text"
               placeholder="He whakaro?"
               name="phaseDescription"
@@ -66,10 +70,10 @@ function AddMarama() {
         </div>
         <div className="field">
           <div className="control">
-            <button className="button is-link">Add</button>
+            <button className="button is-success">Add</button>
           </div>
         </div>
-      </div>  
+      </div>
     </form>
   )
 }

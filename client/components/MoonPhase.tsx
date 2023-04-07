@@ -1,15 +1,18 @@
+import DeleteMarama from './DeleteMarama'
+
 interface Props {
   phaseName: string
   phaseDescription: string
+  id: number
 }
 
-function MoonPhase({ phaseName, phaseDescription }: Props) {
+function MoonPhase({ phaseName, phaseDescription, id }: Props) {
   return (
-    <div>
-      <h4>{phaseName}</h4>
-      <b />
-      <p>{phaseDescription}</p>
-    </div>
+    <article className="notification is-black">
+      <p className="title">{phaseName}</p>
+      <p className="subtitle">{phaseDescription}</p>
+      <DeleteMarama id={id} />
+    </article>
   )
 }
 export default MoonPhase

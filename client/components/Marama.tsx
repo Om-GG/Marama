@@ -18,22 +18,16 @@ function Marama() {
 
   return (
     <div>
-      <div className="maramaHeader">
-        <h1>He marama</h1>
-      </div>
-      <div className="marama">
-        {isLoading && <WaitIndicator />}
-        {error && <p role="paragraph">{error}</p>}
-        <div className="maramaData">
-          {data ? (
-            <MoonPhaseList />
-          ) : (
-            <div>
-              <p>No data!</p>
-            </div>
-          )}
+      {isLoading && <WaitIndicator />}
+      {error && <p>{error}</p>}
+
+      {data ? (
+        <MoonPhaseList />
+      ) : (
+        <div>
+          <p>No data!</p>
         </div>
-      </div>
+      )}
       <AddMarama />
     </div>
   )
