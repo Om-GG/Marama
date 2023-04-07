@@ -14,7 +14,6 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   try {
     const moonPhases = await getMoonPhases()
-
     res.json({ moonPhases })
   } catch (err) {
     console.error(err)
@@ -24,7 +23,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const moonPhase = req.body
+    const moonPhase = req.body.moonPhase
     const newMoonPhase: MoonPhaseSnakeCase = {
       phase_name: moonPhase.phaseName,
       phase_description: moonPhase.phaseDescription,

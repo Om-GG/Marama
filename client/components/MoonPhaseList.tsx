@@ -1,10 +1,5 @@
-import { MoonPhase as MoonPhaseData } from '../../models/MoonPhase'
 import { useAppSelector } from '../hooks/hooks'
 import MoonPhase from './MoonPhase'
-
-interface Props {
-  marama: MoonPhaseData[]
-}
 
 export default function MoonPhaseList() {
   const marama = useAppSelector((state) => state.marama)

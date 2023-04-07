@@ -39,6 +39,7 @@ function marama(state = initialState, action: MoonPhaseAction): MaramaState {
         data: [],
         isLoading: false,
       }
+
     default:
       return state
   }

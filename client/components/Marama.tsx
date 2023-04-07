@@ -1,5 +1,6 @@
 import { getMarama } from '../actions/moonPhase'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
+import AddMarama from './AddMarama'
 import MoonPhaseList from './MoonPhaseList'
 // import ErrorMessage from './ErrorMessage'
 // import MoonPhaseList from './MoonPhaseList'
@@ -7,23 +8,24 @@ import WaitIndicator from './WaitIndicator'
 import { useEffect } from 'react'
 
 function Marama() {
-  const marama = useAppSelector((state) => state.marama)
+  const { isLoading, error, data } = useAppSelector((state) => state.marama)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(getMarama()).catch(console.error)
   }, [dispatch])
-  console.log(marama.data)
+  console.log(data)
+
   return (
     <div>
       <div className="maramaHeader">
         <h1>He marama</h1>
       </div>
       <div className="marama">
-        {marama.isLoading && <WaitIndicator />}
-        {marama.error && <p role="paragraph">{marama.error}</p>}
+        {isLoading && <WaitIndicator />}
+        {error && <p role="paragraph">{error}</p>}
         <div className="maramaData">
-          {marama.data ? (
+          {data ? (
             <MoonPhaseList />
           ) : (
             <div>
@@ -32,6 +34,7 @@ function Marama() {
           )}
         </div>
       </div>
+      <AddMarama />
     </div>
   )
 }
