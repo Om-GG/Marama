@@ -1,10 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react'
 import { useAppDispatch } from '../hooks/hooks'
-import { NewMoonPhase } from '../../models/MoonPhase'
-import { addMarama } from '../actions/moonPhase'
+import { NewMoonPhase, MoonPhase } from '../../models/MoonPhase'
+import { updateMarama } from '../actions/moonPhase'
 
-function AddMarama() {
+interface Props {
+  id: number
+}
+
+function UpdateMarama(props: Props) {
   const dispatch = useAppDispatch()
   const [phaseName, setPhaseName] = useState('')
   const [phaseDescription, setPhaseDescription] = useState('')
@@ -20,12 +24,13 @@ function AddMarama() {
   }
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const newMarama: NewMoonPhase = {
+    const newMarama: MoonPhase = {
+      id: props.id,
       phaseName: phaseName,
       phaseDescription: phaseDescription,
     }
-
-    dispatch(addMarama(newMarama))
+    console.log(newMarama)
+    dispatch(updateMarama(newMarama))
     clearForm()
   }
 
@@ -34,7 +39,7 @@ function AddMarama() {
     setPhaseDescription('')
   }
   return (
-    <form onSubmit={handleSubmit} aria-label="Add Marama">
+    <form onSubmit={handleSubmit} aria-label="Update Marama">
       <div>
         <div className="field">
           <label className="label" htmlFor="phaseName">
@@ -69,7 +74,7 @@ function AddMarama() {
         </div>
         <div className="field">
           <div className="control">
-            <button className="button is-success">Add</button>
+            <button className="button is-success">Update</button>
           </div>
         </div>
       </div>
@@ -77,4 +82,4 @@ function AddMarama() {
   )
 }
 
-export default AddMarama
+export default UpdateMarama

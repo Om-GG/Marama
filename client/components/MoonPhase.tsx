@@ -1,4 +1,5 @@
 import DeleteMarama from './DeleteMarama'
+import UpdateMarama from './UpdateMarama'
 
 interface Props {
   phaseName: string
@@ -12,6 +13,7 @@ function MoonPhase({ phaseName, phaseDescription, id }: Props) {
       <p className="title">{phaseName}</p>
       <p className="subtitle">{phaseDescription}</p>
       <DeleteMarama id={id} />
+      <UpdateMarama id={id} />
     </article>
   )
 }

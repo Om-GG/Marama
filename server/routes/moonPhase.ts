@@ -39,7 +39,8 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
   try {
-    const moonPhase = req.body
+    const { moonPhase } = req.body
+    console.log(moonPhase)
     const newMoonPhase: MoonPhaseSnakeCase = {
       id: moonPhase.id,
       phase_name: moonPhase.phaseName,

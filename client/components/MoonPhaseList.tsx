@@ -1,4 +1,5 @@
 import { useAppSelector } from '../hooks/hooks'
+import AddMarama from './AddMarama'
 import MoonPhase from './MoonPhase'
 
 export default function MoonPhaseList() {
@@ -20,6 +21,9 @@ export default function MoonPhaseList() {
             </>
           )
         })}
+        <div className="column is-one-quarter">
+          <AddMarama />
+        </div>
       </div>
     </div>
   )

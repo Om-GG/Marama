@@ -1,6 +1,5 @@
 import { getMarama } from '../actions/moonPhase'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
-import AddMarama from './AddMarama'
 import MoonPhaseList from './MoonPhaseList'
 // import ErrorMessage from './ErrorMessage'
 // import MoonPhaseList from './MoonPhaseList'
@@ -28,7 +27,6 @@ function Marama() {
           <p>No data!</p>
         </div>
       )}
-      <AddMarama />
     </div>
   )
 }
