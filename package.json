@@ -2,6 +2,9 @@
   "name": "my-fullstack-collection",
   "version": "0.1.0",
   "description": "Build a fullstack collection app",
+  "engines": {
+    "node": "18.12.1"
+  },
   "repository": "https://https://github.com/dev-academy-challenges/my-fullstack-collection",
   "main": "server/index.ts",
   "scripts": {
