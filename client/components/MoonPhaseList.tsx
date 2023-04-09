@@ -1,24 +1,30 @@
-import { MoonPhase as MoonPhaseData } from '../../models/MoonPhase'
 import { useAppSelector } from '../hooks/hooks'
+import AddMarama from './AddMarama'
 import MoonPhase from './MoonPhase'
-
-interface Props {
-  marama: MoonPhaseData[]
-}
 
 export default function MoonPhaseList() {
   const marama = useAppSelector((state) => state.marama)
   return (
     <div>
-      {marama.data.map((moonPhase, i) => {
-        return (
-          <MoonPhase
-            key={i}
-            phaseDescription={moonPhase.phaseDescription}
-            phaseName={moonPhase.phaseName}
-          />
-        )
-      })}
+      <div className="columns is-multiline">
+        {marama.data.map((moonPhase, i) => {
+          return (
+            <>
+              <div className="column is-one-quarter">
+                <MoonPhase
+                  key={i}
+                  phaseDescription={moonPhase.phaseDescription}
+                  phaseName={moonPhase.phaseName}
+                  id={moonPhase.id}
+                />
+              </div>
+            </>
+          )
+        })}
+        <div className="column is-one-quarter">
+          <AddMarama />
+        </div>
+      </div>
     </div>
   )
 }

@@ -4,11 +4,22 @@ import Marama from './Marama'
 function App() {
   return (
     <>
-      <header className="header">
-        <h1>Marama</h1>
-      </header>
-      <section className="main">
-        <Marama />
+      <section className="hero is-small is-info">
+        <div className="hero-body">
+          <p className="title">Marama</p>
+        </div>
+      </section>
+      <nav className="level">
+        <div className="level-item has-text-centered">
+          <div className="column">
+            <p className="title">He marama</p>
+          </div>
+        </div>
+      </nav>
+      <section className="section is-large ">
+        <div className="container">
+          <Marama />
+        </div>
       </section>
     </>
   )

@@ -7,31 +7,26 @@ import WaitIndicator from './WaitIndicator'
 import { useEffect } from 'react'
 
 function Marama() {
-  const marama = useAppSelector((state) => state.marama)
+  const { isLoading, error, data } = useAppSelector((state) => state.marama)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(getMarama()).catch(console.error)
   }, [dispatch])
-  console.log(marama.data)
+  console.log(data)
+
   return (
     <div>
-      <div className="maramaHeader">
-        <h1>He marama</h1>
-      </div>
-      <div className="marama">
-        {marama.isLoading && <WaitIndicator />}
-        {marama.error && <p role="paragraph">{marama.error}</p>}
-        <div className="maramaData">
-          {marama.data ? (
-            <MoonPhaseList />
-          ) : (
-            <div>
-              <p>No data!</p>
-            </div>
-          )}
+      {isLoading && <WaitIndicator />}
+      {error && <p>{error}</p>}
+
+      {data ? (
+        <MoonPhaseList />
+      ) : (
+        <div>
+          <p>No data!</p>
         </div>
-      </div>
+      )}
     </div>
   )
 }
