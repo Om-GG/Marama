@@ -42,8 +42,6 @@ export function addMarama(marama: NewMoonPhase): ThunkAction {
   return async (dispatch) => {
     return addMoonPhase(marama)
       .then((moonPhases) => {
-        console.log(marama)
-        console.log(moonPhases)
         dispatch(receiveMoonPhases(moonPhases))
       })
       .catch((err) => {
@@ -58,12 +56,9 @@ export function addMarama(marama: NewMoonPhase): ThunkAction {
 
 export function updateMarama(marama: MoonPhase): ThunkAction {
   return (dispatch) => {
-    console.log(marama)
     return updateMoonPhase(marama)
       .then((moonPhases) => {
-        console.log(moonPhases)
         dispatch(receiveMoonPhases(moonPhases))
-        console.log(moonPhases)
       })
       .catch((err) => {
         if (err instanceof Error) {

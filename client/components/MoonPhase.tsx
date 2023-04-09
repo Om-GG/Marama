@@ -18,5 +18,3 @@ function MoonPhase({ phaseName, phaseDescription, id }: Props) {
   )
 }
 export default MoonPhase
-
-// console.log(MoonPhase({phaseName, phaseDescription}: Props))

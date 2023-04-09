@@ -13,7 +13,6 @@ function Marama() {
   useEffect(() => {
     dispatch(getMarama()).catch(console.error)
   }, [dispatch])
-  console.log(data)
 
   return (
     <div>

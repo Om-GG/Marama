@@ -29,7 +29,6 @@ function UpdateMarama(props: Props) {
       phaseName: phaseName,
       phaseDescription: phaseDescription,
     }
-    console.log(newMarama)
     dispatch(updateMarama(newMarama))
     clearForm()
   }
