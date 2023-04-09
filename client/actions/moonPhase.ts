@@ -1,11 +1,17 @@
 import type { ThunkAction } from '../store'
-import { MoonPhase } from '../../models/MoonPhase'
+import { MoonPhase, NewMoonPhase } from '../../models/MoonPhase'
 
-import { getMoonPhases } from '../apis/moonPhase'
+import {
+  addMoonPhase,
+  deleteMoonPhase,
+  getMoonPhases,
+  updateMoonPhase,
+} from '../apis/moonPhase'
 
 export const REQUEST_MOON_PHASES = 'REQUEST_MOON_PHASES'
 export const RECEIVE_MOON_PHASES = 'RECEIVE_MOON_PHASES'
 export const FAILURE_MOON_PHASES = 'FAILURE_MOON_PHASES'
+export const ADD_MOON_PHASE_FULFILLED = 'ADD_MOON_PHASE_FULFILLED'
 
 export type MoonPhaseAction =
   | { type: typeof REQUEST_MOON_PHASES }
@@ -29,6 +35,59 @@ export function failureMoonPhases(errorMessage: string): MoonPhaseAction {
   return {
     type: FAILURE_MOON_PHASES,
     payload: errorMessage,
+  }
+}
+
+export function addMarama(marama: NewMoonPhase): ThunkAction {
+  return async (dispatch) => {
+    return addMoonPhase(marama)
+      .then((moonPhases) => {
+        console.log(marama)
+        console.log(moonPhases)
+        dispatch(receiveMoonPhases(moonPhases))
+      })
+      .catch((err) => {
+        if (err instanceof Error) {
+          dispatch(failureMoonPhases(err.message))
+        } else {
+          dispatch(failureMoonPhases('An unknown error occurred'))
+        }
+      })
+  }
+}
+
+export function updateMarama(marama: MoonPhase): ThunkAction {
+  return (dispatch) => {
+    console.log(marama)
+    return updateMoonPhase(marama)
+      .then((moonPhases) => {
+        console.log(moonPhases)
+        dispatch(receiveMoonPhases(moonPhases))
+        console.log(moonPhases)
+      })
+      .catch((err) => {
+        if (err instanceof Error) {
+          dispatch(failureMoonPhases(err.message))
+        } else {
+          dispatch(failureMoonPhases('An unknown error occurred'))
+        }
+      })
+  }
+}
+
+export function deleteMarama(id: number): ThunkAction {
+  return (dispatch) => {
+    return deleteMoonPhase(id)
+      .then((moonPhases) => {
+        dispatch(receiveMoonPhases(moonPhases))
+      })
+      .catch((err) => {
+        if (err instanceof Error) {
+          dispatch(failureMoonPhases(err.message))
+        } else {
+          dispatch(failureMoonPhases('An unknown error occurred'))
+        }
+      })
   }
 }
 

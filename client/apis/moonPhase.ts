@@ -1,43 +1,28 @@
 import request from 'superagent'
 import { MoonPhase, NewMoonPhase } from '../../models/MoonPhase'
 
-const rootUrl = '/api/v1'
+const rootUrl = `/api/v1/moonPhase`
 
 export async function getMoonPhases(): Promise<MoonPhase[]> {
-  const res = await request.get(`/api/v1/moonPhase`)
+  const res = await request.get(`${rootUrl}`)
   return res.body.moonPhases
 }
 
 export async function addMoonPhase(
   moonPhase: NewMoonPhase
 ): Promise<MoonPhase[]> {
-  try {
-    const res = await request.post(`${rootUrl}/moonPhase`).send({ moonPhase })
-    return res.body.moonPhases
-  } catch (err) {
-    console.error('Error consuming the API (in client/apis/moonPhase.js):', err)
-    return []
-  }
+  const res = await request.post(`${rootUrl}`).send({ moonPhase })
+  return res.body.moonPhases
 }
 
 export async function updateMoonPhase(
   moonPhase: MoonPhase
 ): Promise<MoonPhase[]> {
-  try {
-    const res = await request.put(`${rootUrl}/moonPhase`).send({ moonPhase })
-    return res.body.moonPhases
-  } catch (err) {
-    console.error('Error consuming the API (in client/apis/MoonPhase.js):', err)
-    return []
-  }
+  const res = await request.put(`${rootUrl}`).send({ moonPhase })
+  return res.body.moonPhases
 }
 
 export async function deleteMoonPhase(id: number): Promise<MoonPhase[]> {
-  try {
-    const res = await request.delete(`${rootUrl}/moonPhase/${id}`)
-    return res.body.moonPhases
-  } catch (err) {
-    console.error('Error consuming the API (in client/apis/MoonPhase.js):', err)
-    return []
-  }
+  const res = await request.delete(`${rootUrl}/${id}`)
+  return res.body.moonPhases
 }
