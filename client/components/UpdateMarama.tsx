@@ -6,12 +6,16 @@ import { updateMarama } from '../actions/moonPhase'
 
 interface Props {
   id: number
+  phaseName: string
+  phaseDescription: string
 }
 
 function UpdateMarama(props: Props) {
   const dispatch = useAppDispatch()
-  const [phaseName, setPhaseName] = useState('')
-  const [phaseDescription, setPhaseDescription] = useState('')
+  const [phaseName, setPhaseName] = useState(props.phaseName)
+  const [phaseDescription, setPhaseDescription] = useState(
+    props.phaseDescription
+  )
 
   const handlePhaseNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhaseName(e.target.value)
@@ -48,7 +52,7 @@ function UpdateMarama(props: Props) {
             <input
               className="input is-success"
               type="text"
-              placeholder="Ko wai te marama??"
+              placeholder={phaseName}
               name="phaseName"
               id="phaseName"
               value={phaseName}
@@ -63,7 +67,7 @@ function UpdateMarama(props: Props) {
           <div className="control">
             <textarea
               className="textarea is-success"
-              placeholder="He whakaro?"
+              placeholder={phaseDescription}
               name="phaseDescription"
               id="phaseDescription"
               value={phaseDescription}
@@ -73,7 +77,7 @@ function UpdateMarama(props: Props) {
         </div>
         <div className="field">
           <div className="control">
-            <button className="button is-success">Update</button>
+            <button className="button is-success is-responsive">Update</button>
           </div>
         </div>
       </div>
