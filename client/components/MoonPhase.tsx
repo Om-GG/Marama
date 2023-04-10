@@ -32,6 +32,7 @@ function MoonPhase({ phaseName, phaseDescription, id }: Props) {
           id={id}
           phaseName={phaseName}
           phaseDescription={phaseDescription}
+          showForm={toggleUpdateForm}
         />
       )}
     </article>

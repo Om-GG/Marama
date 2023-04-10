@@ -8,6 +8,7 @@ interface Props {
   id: number
   phaseName: string
   phaseDescription: string
+  showForm: () => void
 }
 
 function UpdateMarama(props: Props) {
@@ -38,8 +39,9 @@ function UpdateMarama(props: Props) {
   }
 
   function clearForm() {
-    setPhaseName('')
-    setPhaseDescription('')
+    setPhaseName(phaseName)
+    setPhaseDescription(phaseDescription)
+    props.showForm()
   }
   return (
     <form onSubmit={handleSubmit} aria-label="Update Marama">
