@@ -4,7 +4,7 @@ import Marama from './Marama'
 function App() {
   return (
     <>
-      <section className="hero is-small is-info">
+      <section className="hero is-medium is-black">
         <div className="hero-body">
           <p className="title">Marama</p>
         </div>
