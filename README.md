@@ -1,104 +1,42 @@
-# Fullstack Collection App
+# Marama
 
-This repo is designed to provide space to code a fullstack app. It contains node modules and folders for databases, routes, api requests, react components, and redux actions and creators. Let's get going!
-
-## Setup
+Marama is a work-in-progress Node.js-based project that aims to create an app where users can access an interactive calendar based on Maramataka and a journal that allows them to reflect on their personal experiences through the different parts of the moon cycle. Currently, the app allows you to see, add, delete and edit the different marama (faces of the moon and individual stages of the moon's cycle) using the UI.
+## Getting Started
 
 ### 0. Cloning and installation
-- [x] Clone this repo, navigate to it, install packages, and start the server with `npm run dev`
+- [ ] Clone this repo, navigate to it, install packages, run the database and start the server.
+  
   <details style="padding-left: 2em">
     <summary>Tip</summary>
 
     You may also want to start a new branch
     ```sh
-    cd my-fullstack-collection
+    git clone https://github.com/Om-GG/Marama.git
+    cd Marama
     npm i
-    git checkout -b <branchname>
-    npm run dev
+    npm run knex migrate:latest
+    npm run knex seed:run
+    git checkout -b <branchname> or gco -b <branchname>
+    npm run dev        
     ```
   </details>
+This will start the server on port 3333 by default.
 
-<details>
-  <summary>More about using <code>npm</code> vs <code>npx</code></summary>
+Open your web browser and navigate to localhost:3333 to access the app.
 
-  - When running knex, run `npm run knex <command>`, e.g. `npm run knex migrate:latest` rather than using `npx`
-  - When running webpack, run `npm run webpack <extra commands>`, e.g. `npm run webpack`, rather than using `npx`
-</details>
 
 ---
 
-## Requirements
+## Using Marama
 
-### 1. Choosing your data set
+Once you have the app set up and running, you can use the UI to manage the different marama in the moon cycle. The following operations are available:
 
-- [x] First, decide what you would like to keep a collection of. This could be a repo for keeping track of movies, books, gifs, cars, rocks, anything you fancy, but keep it simple!
-  <details style="padding-left: 2em">
-    <summary>More about your collection</summary>
+* View all marama: Displays a list of all marama.
+* Add marama: Allows you to add a new marama with the specified data.
+* Edit marama: Allows you to update the marama with the specified data.
+* Delete marama: Allows you to delete the marama with the specified data.
 
-    **Note:** the aim is to have some simple data. If you think you might need more than one database table, or have lots of details you want to store, how could you simplify the information you're keeping track of? Leave more complex data until later in the project. For example, I want to keep track of books that I want to read, ones that I have read, and ones that I own. To start with though, let's keep track of the books themselves. My data might look like:
 
-    |id|title|author|
-    |---|---|---|
-    | 1 | Ready Player One | Ernest Cline |
-    | 2 | Throwing Rocks at the Google Bus | Douglas Rushkoff |
+In future stages of development, the ability to delete marama will be removed and the ability to create journal entries for each marama in the calendar will be added. These can then be accessed in the journal section (to be created), allowing users to reflect on their past insights and plan for future iterations of their cycles.
 
-Our first job is getting something showing on the front end from our database. Here's a list of steps in case they are useful. You can build in any order you like though ;)
-
-## Back end
-
-### 2. Building the database
-
-- [x] Design a database to store a list of your things (e.g. books)
-- [x] Build the migrations and seed data
-
-### 3. Building the API
-- [x] Build an API (back end route) to get the information from your database
-- [x] Test your API with Insomnia
-
-## Front end
-
-### 4. Setting the stage
-
-- [x] Build a React component with static html
-- [x] Build Redux reducer. Start with a hardcoded initial state
-  <details style="padding-left: 2em">
-    <summary>Tip</summary>
-    
-    For example:
-    ```js
-    const initialState = [{ id: 1, title: 'Ready Player One', author: 'Ernest Cline' }]
-    ```
-  </details>
-
-- [x] Use `useAppSelector` to display the redux state you hardcoded in the React Component
-
-### 5. Building the API client
-- [x] Build an API client in the front end to request the information from your routes
-
-### 6. Building thunky actions
-- [x] Build Thunk actions to use the API and get the information
-- [x] Build Redux actions to save task data from the thunk
-- [x] Use `useAppDispatch` and `useEffect` to dispatch the thunk when your app loads
-
-## Additional functionality
-
-### 7. Adding, deleting, and updating records
-- [ ] Include the ability to add a new record (will need a form in your components)
-- [ ] Include the ability to remove/delete records
-- [ ] Include the ability to update records (e.g. for correcting typos)
-
----
-## Stretch
-
-<details>
-  <summary>More about stretch challenges</summary>
-  
-  - Forms can be tough to build accessibly. First ensure all parts of your form can be reached and used with keyboard-only navigation. Then test your form page with the WAVE browser extension, and fix any accessibility issues it detects
-  - Is there any complex data you chose to not include earlier or any way you could expand this dataset?
-    - You might have some other information (e.g. unread books vs. read books) that should be included in your database design, and this may require adjusting your database design
-  - Could you add an external API (maybe an inspirational quote in the footer?)
-  - If you haven't already, CSS!
-</details>
-
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=my-fullstack-collection)
+By following the steps outlined in this README file, you can set up the project and start using the UI to manage the different marama in the moon cycle.
