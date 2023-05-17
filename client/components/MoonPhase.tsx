@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import DeleteMarama from './DeleteMarama'
 import UpdateMarama from './UpdateMarama'
 
@@ -11,9 +11,9 @@ interface Props {
 function MoonPhase({ phaseName, phaseDescription, id }: Props) {
   const [showUpdateForm, setShowUpdateForm] = useState(false)
 
-  const toggleUpdateForm = () => {
-    setShowUpdateForm(!showUpdateForm)
-  }
+  const toggleUpdateForm = useCallback(() => {
+    setShowUpdateForm((prevState) => !prevState)
+  }, [setShowUpdateForm])
 
   return (
     <article className="notification is-black">

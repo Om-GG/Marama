@@ -3,22 +3,25 @@ import AddMarama from './AddMarama'
 import MoonPhase from './MoonPhase'
 
 export default function MoonPhaseList() {
-  const marama = useAppSelector((state) => state.marama)
+  const { data, error } = useAppSelector((state) => state.marama)
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+
   return (
     <div>
       <div className="columns is-multiline">
-        {marama.data.map((moonPhase, i) => {
+        {data.map((moonPhase, i) => {
           return (
-            <>
-              <div className="column is-one-quarter">
-                <MoonPhase
-                  key={i}
-                  phaseDescription={moonPhase.phaseDescription}
-                  phaseName={moonPhase.phaseName}
-                  id={moonPhase.id}
-                />
-              </div>
-            </>
+            <div className="column is-one-quarter" key={i}>
+              <MoonPhase
+                key={moonPhase.id}
+                phaseDescription={moonPhase.phaseDescription}
+                phaseName={moonPhase.phaseName}
+                id={moonPhase.id}
+              />
+            </div>
           )
         })}
         <div className="column is-one-quarter">

@@ -19,9 +19,8 @@ function Marama() {
       {isLoading && <WaitIndicator />}
       {error && <p>{error}</p>}
 
-      {data ? (
-        <MoonPhaseList />
-      ) : (
+      {data && <MoonPhaseList />}
+      {!data && (
         <div>
           <p>No data!</p>
         </div>
@@ -31,13 +30,3 @@ function Marama() {
 }
 
 export default Marama
-
-// if (marama.isLoading) {
-//   return <WaitIndicator />
-// }
-
-// if (marama.error) {
-//   return <ErrorMessage message={marama.error} />
-// }
-
-// return <MoonPhaseList marama={marama.data} />
