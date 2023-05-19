@@ -9,104 +9,21 @@
 //The form is displayed in the JournalInputForm component.
 
 //Path: client/components/JournalInputForm.tsx
-//Compare this snippet from client/components/AddMarama.tsx:
-// import { useState } from 'react'
-// import { useAppDispatch } from '../hooks/hooks'
-// import { NewMoonPhase } from '../../models/moonPhase'
-// import { addMarama } from '../actions/moonPhase'
-
-// function AddMarama() {
-//   const dispatch = useAppDispatch()
-//   const [phaseName, setPhaseName] = useState('')
-//   const [phaseDescription, setPhaseDescription] = useState('')
-
-//   const handlePhaseNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setPhaseName(e.target.value)
-//   }
-
-//   const handlePhaseDescriptionChange = (
-//     e: React.ChangeEvent<HTMLTextAreaElement>
-//   ) => {
-//     setPhaseDescription(e.target.value)
-//   }
-//   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-//     e.preventDefault()
-//     const newMarama: NewMoonPhase = {
-//       phaseName: phaseName,
-//       phaseDescription: phaseDescription,
-//     }
-
-//     dispatch(addMarama(newMarama))
-//     clearForm()
-//   }
-
-//   function clearForm() {
-//     setPhaseName('')
-//     setPhaseDescription('')
-//   }
-//   return (
-//     <form onSubmit={handleSubmit} aria-label="Add Marama">
-//       <div>
-//         <div className="field">
-//           <label className="label" htmlFor="phaseName">
-//             Name
-//           </label>
-//           <div className="control">
-//             <input
-//               className="input is-success"
-//               type="text"
-//               placeholder="Ko wai te marama??"
-//               name="phaseName"
-//               id="phaseName"
-//               value={phaseName}
-//               onChange={handlePhaseNameChange}
-//             />
-//           </div>
-//         </div>
-//         <div className="field">
-//           <label className="label" htmlFor="phaseDescription">
-//             Description
-//           </label>
-//           <div className="control">
-//             <textarea
-//               className="textarea is-success"
-//               placeholder="He whakaro?"
-//               name="phaseDescription"
-//               id="phaseDescription"
-//               value={phaseDescription}
-//               onChange={handlePhaseDescriptionChange}
-//             />
-//           </div>
-//         </div>
-//         <div className="field">
-//           <div className="control">
-//             <button className="button is-success">Add</button>
-//           </div>
-//         </div>
-//       </div>
-//     </form>
-//   )
-// }
-
-// export default AddMarama
 
 // Imports necessary modules
-import React, { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../hooks/hooks'
+import React, { useState } from 'react'
+import { useAppDispatch } from '../hooks/hooks'
 import {
   addJournalInputEntry,
-  deleteJournalInputEntry,
-  updateJournalInputEntry,
-  getJournalInputEntries,
 } from '../actions/journalInput'
 import { NewJournalInput } from '../../models/journalInput'
 
-interface JournalInputFormProps {
+interface Props {
   phaseId: number
 }
 
 // Creates the JournalInputForm component
-function JournalInputForm() {
+function JournalInputForm({ phaseId }: Props) {
   const dispatch = useAppDispatch()
   const [journalEntryName, setJournalEntryName] = useState('')
   const [journalEntryDate, setJournalEntryDate] = useState('')

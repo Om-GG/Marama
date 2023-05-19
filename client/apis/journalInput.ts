@@ -8,7 +8,7 @@
 import request from 'superagent'
 import { JournalInput, NewJournalInput } from '../../models/journalInput'
 
-const journalInputApiUrl = '/api/v1/journalInput'
+const journalInputApiUrl = '/api/v1/journalInputs'
 
 interface JournalInputResponse {
   body: {
