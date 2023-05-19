@@ -11,7 +11,6 @@ import {
 export const REQUEST_MOON_PHASES = 'REQUEST_MOON_PHASES'
 export const RECEIVE_MOON_PHASES = 'RECEIVE_MOON_PHASES'
 export const FAILURE_MOON_PHASES = 'FAILURE_MOON_PHASES'
-export const ADD_MOON_PHASE_FULFILLED = 'ADD_MOON_PHASE_FULFILLED'
 
 export type MoonPhaseAction =
   | { type: typeof REQUEST_MOON_PHASES }
