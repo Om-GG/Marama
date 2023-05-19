@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import DeleteMarama from './DeleteMarama'
 import UpdateMarama from './UpdateMarama'
+import JournalInputForm from './JournalInputForm'
 
 interface Props {
   phaseName: string
@@ -10,6 +11,11 @@ interface Props {
 
 function MoonPhase({ phaseName, phaseDescription, id }: Props) {
   const [showUpdateForm, setShowUpdateForm] = useState(false)
+  const [showJournalInputForm, setShowJournalInputForm] = useState(false)
+
+  const toggleJournalInputForm = useCallback(() => {
+    setShowJournalInputForm((prevState) => !prevState)
+  }, [setShowJournalInputForm])
 
   const toggleUpdateForm = useCallback(() => {
     setShowUpdateForm((prevState) => !prevState)
@@ -35,6 +41,14 @@ function MoonPhase({ phaseName, phaseDescription, id }: Props) {
           showForm={toggleUpdateForm}
         />
       )}
+
+      <button
+        className="button is-primary is-small is-inverted is-responsive"
+        onClick={toggleJournalInputForm}
+      >
+        Add Journal Entry
+      </button>
+      {showJournalInputForm && <JournalInputForm phaseId={id} />}
     </article>
   )
 }
