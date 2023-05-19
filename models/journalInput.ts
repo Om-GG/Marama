@@ -29,5 +29,3 @@ export interface NewJournalInput {
   journalEntryDate: string
   journalEntryInput: string
 }
-
-export type RawJournalInputArr = { data: JournalInput }[]
