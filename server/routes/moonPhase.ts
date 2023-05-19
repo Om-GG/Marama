@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     res.json({ moonPhases })
   } catch (err) {
     console.error(err)
-    res.status(500).send('Something went wrong')
+    res.status(500).send('Something went wrong getting moon phases')
   }
 })
 
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
     res.json({ moonPhases })
   } catch (err) {
     console.error(err)
-    res.status(500).send('Something went wrong')
+    res.status(500).send('Something went wrong adding your moon phase')
   }
 })
 
