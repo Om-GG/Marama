@@ -4,7 +4,7 @@ import {
   RECEIVE_MOON_PHASES,
   FAILURE_MOON_PHASES,
 } from '../actions/moonPhase'
-import { MoonPhase } from '../../models/MoonPhase'
+import { MoonPhase } from '../../models/moonPhase'
 
 const initialState: MaramaState = {
   data: [],

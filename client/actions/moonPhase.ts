@@ -1,5 +1,5 @@
 import type { ThunkAction } from '../store'
-import { MoonPhase, NewMoonPhase } from '../../models/MoonPhase'
+import { MoonPhase, NewMoonPhase } from '../../models/moonPhase'
 
 import {
   addMoonPhase,

@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { MoonPhase, NewMoonPhase } from '../../models/MoonPhase'
+import { MoonPhase, NewMoonPhase } from '../../models/moonPhase'
 
 const moonPhasesApiUrl = `/api/v1/moonPhases`
 

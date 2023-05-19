@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react'
 import { useAppDispatch } from '../hooks/hooks'
-import { MoonPhase } from '../../models/MoonPhase'
+import { MoonPhase } from '../../models/moonPhase'
 import { updateMarama } from '../actions/moonPhase'
 
 interface Props {

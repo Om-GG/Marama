@@ -1,5 +1,5 @@
 import connection from './connection'
-import { MoonPhaseSnakeCase } from '../../models/MoonPhase'
+import { MoonPhaseSnakeCase } from '../../models/moonPhase'
 
 export function getMoonPhases(db = connection) {
   return db('moon_phase')
