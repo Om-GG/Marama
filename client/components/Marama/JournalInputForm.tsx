@@ -12,11 +12,11 @@
 
 // Imports necessary modules
 import React, { useState } from 'react'
-import { useAppDispatch } from '../hooks/hooks'
+import { useAppDispatch } from '../../hooks/hooks'
 import {
   addJournalInputEntry,
-} from '../actions/journalInput'
-import { NewJournalInput } from '../../models/journalInput'
+} from '../../actions/journalInput'
+import { NewJournalInput } from '../../../models/journalInput'
 
 interface Props {
   phaseId: number

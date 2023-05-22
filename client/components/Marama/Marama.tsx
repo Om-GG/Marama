@@ -1,5 +1,5 @@
-import { getMarama } from '../actions/moonPhase'
-import { useAppDispatch, useAppSelector } from '../hooks/hooks'
+import { getMarama } from '../../actions/moonPhase'
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import MoonPhaseList from './MoonPhaseList'
 // import ErrorMessage from './ErrorMessage'
 // import MoonPhaseList from './MoonPhaseList'

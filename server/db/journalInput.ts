@@ -22,6 +22,8 @@ export function getJournalInputs(db = connection) {
     .orderBy('id')
 }
 
+//TODO: This function queries the database for journal inputs dynamically based on the search criteria by name, phaseId, keyword, description and date.
+
 export function addJournalInput(
   journalInput: JournalInputSnakeCase,
   db = connection

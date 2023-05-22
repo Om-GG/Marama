@@ -1,0 +1,1 @@
+//TODO: This component represents an individual journal entry. It will be used by the EntryList component to display the list of journal entries. It will also be used by the SelectedEntry component to display the full details of the selected entry. It will receive the entry data as props and display it in a suitable UI component.

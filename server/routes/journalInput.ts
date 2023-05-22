@@ -26,6 +26,8 @@ router.get('/', async (req, res) => {
   }
 })
 
+//TODO: This route queries the database for journal inputs dynamically based on the search criteria by name, phaseId, keyword, description and date.
+
 router.post('/', async (req, res) => {
   try {
     const journalInput = req.body.journalInput

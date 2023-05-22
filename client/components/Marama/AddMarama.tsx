@@ -1,22 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react'
-import { useAppDispatch } from '../hooks/hooks'
-import { MoonPhase } from '../../models/moonPhase'
-import { updateMarama } from '../actions/moonPhase'
+import { useAppDispatch } from '../../hooks/hooks'
+import { NewMoonPhase } from '../../../models/moonPhase'
+import { addMarama } from '../../actions/moonPhase'
 
-interface Props {
-  id: number
-  phaseName: string
-  phaseDescription: string
-  showForm: () => void
-}
-
-function UpdateMarama(props: Props) {
+function AddMarama() {
   const dispatch = useAppDispatch()
-  const [phaseName, setPhaseName] = useState(props.phaseName)
-  const [phaseDescription, setPhaseDescription] = useState(
-    props.phaseDescription
-  )
+  const [phaseName, setPhaseName] = useState('')
+  const [phaseDescription, setPhaseDescription] = useState('')
 
   const handlePhaseNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhaseName(e.target.value)
@@ -29,22 +20,21 @@ function UpdateMarama(props: Props) {
   }
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const newMarama: MoonPhase = {
-      id: props.id,
+    const newMarama: NewMoonPhase = {
       phaseName: phaseName,
       phaseDescription: phaseDescription,
     }
-    dispatch(updateMarama(newMarama))
+
+    dispatch(addMarama(newMarama))
     clearForm()
   }
 
   function clearForm() {
-    setPhaseName(phaseName)
-    setPhaseDescription(phaseDescription)
-    props.showForm()
+    setPhaseName('')
+    setPhaseDescription('')
   }
   return (
-    <form onSubmit={handleSubmit} aria-label="Update Marama">
+    <form onSubmit={handleSubmit} aria-label="Add Marama">
       <div>
         <div className="field">
           <label className="label" htmlFor="phaseName">
@@ -54,7 +44,7 @@ function UpdateMarama(props: Props) {
             <input
               className="input is-success"
               type="text"
-              placeholder={phaseName}
+              placeholder="Ko wai te marama??"
               name="phaseName"
               id="phaseName"
               value={phaseName}
@@ -69,7 +59,7 @@ function UpdateMarama(props: Props) {
           <div className="control">
             <textarea
               className="textarea is-success"
-              placeholder={phaseDescription}
+              placeholder="He whakaro?"
               name="phaseDescription"
               id="phaseDescription"
               value={phaseDescription}
@@ -79,7 +69,7 @@ function UpdateMarama(props: Props) {
         </div>
         <div className="field">
           <div className="control">
-            <button className="button is-success is-responsive">Update</button>
+            <button className="button is-success">Add</button>
           </div>
         </div>
       </div>
@@ -87,4 +77,4 @@ function UpdateMarama(props: Props) {
   )
 }
 
-export default UpdateMarama
+export default AddMarama

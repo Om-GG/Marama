@@ -1,0 +1,1 @@
+//TODO: This components will display the full details of the selected entry. Render this component when an entry is selected, and update it with the corresponding entry's data. You can also include options to edit or delete the entry. The selected entry should take up the main portion of the page, with the list of entries on the side, and arrows to navigate between entries.

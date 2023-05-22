@@ -1,5 +1,5 @@
-import { deleteMarama } from '../actions/moonPhase'
-import { useAppDispatch } from '../hooks/hooks'
+import { deleteMarama } from '../../actions/moonPhase'
+import { useAppDispatch } from '../../hooks/hooks'
 interface Props {
   id: number
 }

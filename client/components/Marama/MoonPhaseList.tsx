@@ -1,4 +1,4 @@
-import { useAppSelector } from '../hooks/hooks'
+import { useAppSelector } from '../../hooks/hooks'
 import AddMarama from './AddMarama'
 import MoonPhase from './MoonPhase'
 
