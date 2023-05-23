@@ -7,7 +7,7 @@
 export interface JournalInput {
   id: number
   phaseId: number
-  journalEntryName: string
+  journalEntryTitle: string
   journalEntryDescription: string
   journalEntryDate: string
   journalEntryInput: string
@@ -16,7 +16,7 @@ export interface JournalInput {
 export interface JournalInputSnakeCase {
   id?: number
   phase_id: number
-  journal_entry_name: string
+  journal_entry_title: string
   journal_entry_description: string
   journal_entry_date: string
   journal_entry_input: string
@@ -24,8 +24,16 @@ export interface JournalInputSnakeCase {
 
 export interface NewJournalInput {
   phaseId: number
-  journalEntryName: string
+  journalEntryTitle: string
   journalEntryDescription: string
   journalEntryDate: string
   journalEntryInput: string
+}
+
+export interface JournalQueryParams {
+  date?: string
+  moonPhase?: string
+  inputTitle?: string
+  keywords?: string
+  description?: string
 }

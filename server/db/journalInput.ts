@@ -7,14 +7,17 @@
 // Compare this snippet from models/journalInput.ts:
 
 import connection from './connection'
-import { JournalInputSnakeCase } from '../../models/journalInput'
+import {
+  JournalInputSnakeCase,
+  JournalQueryParams,
+} from '../../models/journalInput'
 
 export function getJournalInputs(db = connection) {
   return db('journal_input')
     .select(
       'id',
       'phase_id as phaseId',
-      'journal_entry_name as journalEntryName',
+      'journal_entry_title as journalEntryTitle',
       'journal_entry_description as journalEntryDescription',
       'journal_entry_date as journalEntryDate',
       'journal_entry_input as journalEntryInput'
@@ -22,8 +25,50 @@ export function getJournalInputs(db = connection) {
     .orderBy('id')
 }
 
-//TODO: This function queries the database for journal inputs dynamically based on the search criteria by name, phaseId, keyword, description and date.
+//TODO: This function queries the database for journal inputs dynamically based on the search criteria by title, phaseId, keyword, description and date.
 
+export function getJournalInputByQueryParams(
+  queryParams: JournalQueryParams,
+  db = connection
+) {
+  const date = queryParams.date
+  const moonPhase = queryParams.moonPhase
+  const inputTitle = queryParams.inputTitle
+  const keywords = queryParams.keywords
+  const description = queryParams.description
+  return db('journal_input')
+    .select(
+      'id',
+      'phase_id as phaseId',
+      'journal_entry_title as journalEntryTitle',
+      'journal_entry_description as journalEntryDescription',
+      'journal_entry_date as journalEntryDate',
+      'journal_entry_input as journalEntryInput'
+    )
+    .where((builder) => {
+      if (Object.keys(queryParams).length > 0) {
+        if (date !== undefined) {
+          builder.where('journal_entry_date', date)
+        }
+        if (moonPhase !== undefined) {
+          builder.where('phase_id', moonPhase)
+        }
+        if (inputTitle !== undefined) {
+          builder.where('journal_entry_title', 'ilike', inputTitle)
+        }
+        if (description !== undefined) {
+          builder.where('journal_entry_description', 'ilike', description)
+        }
+        if (keywords !== undefined) {
+          const keywordsArray = keywords.split(',')
+          builder.whereIn(
+            'journal_entry_input',
+            keywordsArray.map((keyword: string) => `%${keyword}%`)
+          )
+        }
+      }
+    })
+}
 export function addJournalInput(
   journalInput: JournalInputSnakeCase,
   db = connection

@@ -28,7 +28,7 @@ export async function getJournalInputs(): Promise<JournalInput[]> {
   }
 }
 
-//TODO: This route queries the database for journal inputs dynamically based on the search criteria by name, phaseId, keyword, description and date.
+//TODO: This route queries the database for journal inputs dynamically based on the search criteria by title, phaseId, keyword, description and date.
 
 export async function addJournalInput(
   journalInput: NewJournalInput

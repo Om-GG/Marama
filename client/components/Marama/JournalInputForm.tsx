@@ -3,7 +3,7 @@
 //It also allows the user to view all of their journal entries.
 //It also allows the user to delete a journal entry.
 //It also allows the user to edit a journal entry.
-//The input fields are journalEntryName, journalEntryDate, journalEntryDescription, and journalEntryInput. These are diplayed as Name, Date, Description, and Entry respectively.
+//The input fields are journalEntryTitle, journalEntryDate, journalEntryDescription, and journalEntryInput. These are diplayed as Title, Date, Description, and Entry respectively.
 //The user can submit the form by clicking the Add button.
 
 //The form is displayed in the JournalInputForm component.
@@ -25,16 +25,16 @@ interface Props {
 // Creates the JournalInputForm component
 function JournalInputForm({ phaseId }: Props) {
   const dispatch = useAppDispatch()
-  const [journalEntryName, setJournalEntryName] = useState('')
+  const [journalEntryTitle, setJournalEntryTitle] = useState('')
   const [journalEntryDate, setJournalEntryDate] = useState('')
   const [journalEntryDescription, setJournalEntryDescription] = useState('')
   const [journalEntryInput, setJournalEntryInput] = useState('')
 
-  // Handles the change of the journal entry name
-  const handleJournalEntryNameChange = (
+  // Handles the change of the journal entry title
+  const handleJournalEntryTitleChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setJournalEntryName(e.target.value)
+    setJournalEntryTitle(e.target.value)
   }
 
   // Handles the change of the journal entry date
@@ -63,7 +63,7 @@ function JournalInputForm({ phaseId }: Props) {
     e.preventDefault()
     const newJournalInput: NewJournalInput = {
       phaseId: phaseId,
-      journalEntryName: journalEntryName,
+      journalEntryTitle: journalEntryTitle,
       journalEntryDate: journalEntryDate,
       journalEntryDescription: journalEntryDescription,
       journalEntryInput: journalEntryInput,
@@ -75,7 +75,7 @@ function JournalInputForm({ phaseId }: Props) {
 
   // Clears the form
   function clearForm() {
-    setJournalEntryName('')
+    setJournalEntryTitle('')
     setJournalEntryDate('')
     setJournalEntryDescription('')
     setJournalEntryInput('')
@@ -86,18 +86,18 @@ function JournalInputForm({ phaseId }: Props) {
     <form onSubmit={handleSubmit} aria-label="Add Journal Entry">
       <div>
         <div className="field">
-          <label className="label" htmlFor="journalEntryName">
-            Name
+          <label className="label" htmlFor="journalEntryTitle">
+            Title
           </label>
           <div className="control">
             <input
               className="input is-success"
               type="text"
               placeholder="Ko wai te ingoa?"
-              name="journalEntryName"
-              id="journalEntryName"
-              value={journalEntryName}
-              onChange={handleJournalEntryNameChange}
+              name="journalEntryTitle"
+              id="journalEntryTitle"
+              value={journalEntryTitle}
+              onChange={handleJournalEntryTitleChange}
             />
           </div>
         </div>

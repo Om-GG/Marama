@@ -1,5 +1,5 @@
 // import {Routes, Route} from 'react-router-dom'
-import Marama from './Marama'
+import Marama from './Marama/Marama'
 
 function App() {
   return (

@@ -60,7 +60,7 @@ exports.seed = async function (knex) {
     {
       id: 11,
       phase_name: 'Huna',
-      phase_description: '',
+      phase_description: 'Watch what hides under the surface',
     },
     {
       id: 12,

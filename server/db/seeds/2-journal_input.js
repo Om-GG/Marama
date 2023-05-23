@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
     {
       id: 1,
       phase_id: 1,
-      journal_entry_name: 'A quiet time',
+      journal_entry_title: 'A quiet time',
       journal_entry_description: 'I had a quiet day.',
       journal_entry_date: '12-03-23',
       journal_entry_input: './data/Input.md',
@@ -17,7 +17,7 @@ exports.seed = async function (knex) {
     {
       id: 2,
       phase_id: 1,
-      journal_entry_name: 'I am restless',
+      journal_entry_title: 'I am restless',
       journal_entry_description: 'I had a hard time thinking clearly',
       journal_entry_date: '16-02-23',
       journal_entry_input: './data/Input.md',
@@ -25,7 +25,7 @@ exports.seed = async function (knex) {
     {
       id: 3,
       phase_id: 3,
-      journal_entry_name: 'Set in motion',
+      journal_entry_title: 'Set in motion',
       journal_entry_description: 'Today I had the first meeting with...',
       journal_entry_date: '19-02-23',
       journal_entry_input: './data/Input.md',
@@ -33,7 +33,7 @@ exports.seed = async function (knex) {
     {
       id: 4,
       phase_id: 4,
-      journal_entry_name: 'Nice!',
+      journal_entry_title: 'Nice!',
       journal_entry_description: 'Everyone has agreed on the plan',
       journal_entry_date: '20-02-23',
       journal_entry_input: './data/Input.md',

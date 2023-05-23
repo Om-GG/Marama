@@ -26,14 +26,14 @@ router.get('/', async (req, res) => {
   }
 })
 
-//TODO: This route queries the database for journal inputs dynamically based on the search criteria by name, phaseId, keyword, description and date.
+//TODO: This route queries the database for journal inputs dynamically based on the search criteria by title, phaseId, keyword, description and date.
 
 router.post('/', async (req, res) => {
   try {
     const journalInput = req.body.journalInput
     const newJournalInput: JournalInputSnakeCase = {
       phase_id: journalInput.phaseId,
-      journal_entry_name: journalInput.journalEntryName,
+      journal_entry_title: journalInput.journalEntryTitle,
       journal_entry_description: journalInput.journalEntryDescription,
       journal_entry_date: journalInput.journalEntryDate,
       journal_entry_input: journalInput.journalEntryInput,
@@ -53,7 +53,7 @@ router.put('/', async (req, res) => {
     const newJournalInput: JournalInputSnakeCase = {
       id: journalInput.id,
       phase_id: journalInput.phaseId,
-      journal_entry_name: journalInput.journalEntryName,
+      journal_entry_title: journalInput.journalEntryTitle,
       journal_entry_description: journalInput.journalEntryDescription,
       journal_entry_date: journalInput.journalEntryDate,
       journal_entry_input: journalInput.journalEntryInput,
